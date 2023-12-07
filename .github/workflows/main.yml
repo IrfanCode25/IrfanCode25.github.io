@@ -17,6 +17,11 @@ jobs:
       run: |
         git config --global user.email "irfan25061997m@gmail.com"
         git config --global user.name "irfancode25"
+        
+         # Set up Git credentials using GitHub Token
+        git config credential.helper "store --file=.git-credentials"
+        echo "https://github-actions:${{ secrets.GITHUB_TOKEN }}" > .git-credentials
+
         git add .
         git commit -m "Deploy to GitHub Pages"
         git push
