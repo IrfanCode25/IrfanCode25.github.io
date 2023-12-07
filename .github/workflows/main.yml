@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Deploy to GitHub Pages
-      run: |
-        git config --global user.email "irfan25061997m@gmail.com"
-        git config --global user.name "irfancode25"
-        
-         # Set up Git credentials using GitHub Token
-        git config credential.helper "store --file=.git-credentials"
-        echo "https://github-actions:${{ secrets.GITHUB_TOKEN }}" > .git-credentials
+      - name: Automatic Deploy to GitHub Pages
+        run: |
+          git config --global user.email "irfan25061997m@gmail.com"
+          git config --global user.name "irfancode25"
 
-        git add .
-        git commit -m "Deploy to GitHub Pages"
-        git push
+           # Set up Git credentials using GitHub Token
+          git config credential.helper "store --file=.git-credentials"
+          echo "https://github-actions:${{ secrets.GITHUB_TOKEN }}" > .git-credentials
+
+          git add .
+          git commit -m "Deploy to GitHub Pages"
+          git push
